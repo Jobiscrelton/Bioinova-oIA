@@ -1,0 +1,760 @@
+:root {
+    --escuro: #000C1D;
+    --claro: #0066CC;
+    --mais_claro: #23AAF8;
+    --mais_claro_ainda: #38D9FF;
+    --body_color: #001328;
+}
+
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--body_color);
+    color: var(--mais_claro);
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BARRA DO MENU
+========================= */
+
+header {
+    width: 100%;
+    background-color: var(--escuro);
+    border-bottom: 1px solid var(--claro);
+}
+
+.header-container {
+    width: min(95%, 1400px);
+    min-height: 60px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr) 70px;
+
+    align-items: center;
+}
+
+
+.logo {
+    width: 40px;
+    height: 40px;
+
+    object-fit: contain;
+
+    justify-self: start;
+
+    background-color: var(--mais_claro);
+    border-radius: 50%;
+}
+
+
+.header-container h1 {
+    justify-self: center;
+
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+
+    color: var(--mais_claro);
+
+    /* tamanho que se adapta à tela */
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+
+.verde {
+    color: var(--mais_claro_ainda);
+    font-family: "Orbitron", sans-serif;
+}
+
+
+.menu-btn {
+    justify-self: end;
+
+    background: none;
+    border: none;
+
+    color: var(--claro);
+
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   MENU SUSPENSO
+========================= */
+
+.nav-menu {
+    display: none;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    background-color: var(--escuro);
+}
+
+
+.nav-menu.ativo {
+    display: flex;
+
+    position: absolute;
+
+    left: 0;
+    top: 60px;
+
+    width: 100%;
+
+    z-index: 1000;
+}
+
+
+.nav-menu a {
+    display: block;
+
+    width: 100%;
+
+    padding: 12px 30px;
+
+    color: var(--claro);
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.nav-menu a:hover {
+    background-color: var(--body_color);
+}
+
+
+.nav-menu a:active {
+    background-color: var(--escuro);
+}
+
+
+.menu-btn:focus {
+    outline: 1px solid var(--claro);
+    outline-offset: 3px;
+}
+
+
+/* =========================
+   TÍTULO RESUMO
+========================= */
+
+.doQueSeTrata {
+    display: inline-block;
+
+    margin: 25px 0 0 clamp(15px, 3vw, 30px);
+
+    padding: 10px 20px;
+
+    background-color: var(--mais_claro);
+    color: var(--body_color);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+
+    border-radius: 5px;
+
+    clip-path: inset(0 100% 0 0);
+
+    animation: aparecer 0.5s ease 0.5s forwards;
+}
+
+
+@keyframes aparecer {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+/* =========================
+   RESUMO
+========================= */
+
+#resumo {
+    width: calc(100% - clamp(30px, 6vw, 60px));
+
+    max-width: 1200px;
+
+    margin: 20px clamp(15px, 3vw, 30px);
+
+    padding: clamp(15px, 2vw, 20px);
+
+    background-color: var(--escuro);
+
+    color: whitesmoke;
+
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+
+    line-height: 1.15;
+
+    font-weight: bold;
+
+    border-radius: 15px;
+
+    overflow-wrap: break-word;
+
+    clip-path: inset(0 100% 0 0);
+
+    animation: aparecer2 0.5s ease 0.8s forwards;
+}
+
+
+@keyframes aparecer2 {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+#pc {
+    color: var(--mais_claro);
+}
+
+
+/* =========================
+   TÍTULO COMO FUNCIONA
+========================= */
+
+#cont {
+    display: inline-block;
+
+    margin: 25px 0 0 clamp(15px, 3vw, 30px);
+
+    padding: 15px 20px;
+
+    background-color: var(--mais_claro);
+
+    color: var(--body_color);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+
+    font-weight: bold;
+
+    border-radius: 5px;
+
+    max-width: calc(100% - 30px);
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   CONTAINER GERAL DOS STEPS
+========================================= */
+
+.steps-container {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(min(100%, 18rem), 1fr)
+        );
+
+    gap: clamp(1rem, 2vw, 2rem);
+
+    padding-inline: clamp(1rem, 3vw, 3rem);
+
+    margin-top: clamp(1rem, 2vw, 2rem);
+}
+
+
+/* =========================================
+   CADA STEP
+========================================= */
+
+.step {
+    width: 100%;
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        clamp(2.5rem, 6vw, 3.75rem)
+        minmax(0, 1fr);
+
+    grid-template-rows:
+        auto
+        auto
+        auto;
+
+    column-gap: clamp(0.5rem, 1.5vw, 1rem);
+
+    padding: clamp(1rem, 2vw, 1.5rem);
+
+    background-color: var(--escuro);
+
+    color: whitesmoke;
+
+    border-radius: clamp(0.6rem, 1vw, 1rem);
+
+    font-weight: bold;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   NÚMERO
+========================================= */
+
+.step .n {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 100%;
+    aspect-ratio: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--claro);
+
+    color: whitesmoke;
+
+    border-radius: 50%;
+
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.step strong {
+    grid-column: 2;
+    grid-row: 1;
+
+    align-self: center;
+
+    color: whitesmoke;
+
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   DESCRIÇÃO
+========================================= */
+
+.step .desc {
+    grid-column: 2;
+    grid-row: 2;
+
+    color: gray;
+
+    font-size: clamp(0.75rem, 1vw, 0.95rem);
+
+    line-height: 1.3;
+
+    font-weight: normal;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   IMAGEM
+========================================= */
+.step .maps {
+    grid-column: 2;
+    grid-row: 3;
+
+    width: 100%;
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    margin-top: clamp(0.4rem, 1vw, 0.75rem);
+
+    border-radius: clamp(0.4rem, 0.8vw, 0.7rem);
+}
+/* ==================================================
+   ANIMAÇÃO DO TÓPICO E STEPS
+================================================== */
+#cont{
+  clip-path: inset(0 100% 0 0);
+
+  animation: aparecer2 0.5s ease 1s forwards;
+}
+
+
+@keyframes aparecer2 {
+  from {
+      clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+      clip-path: inset(0 0 0 0);
+  }
+}
+
+
+.step{
+  clip-path: inset(0 0 100% 0);
+
+    animation: aparecer3 1s ease 1.2s forwards;
+}
+
+
+@keyframes aparecer3 {
+    from {
+        clip-path: inset(0 0 100% 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+
+/* ==================================================
+   TABLETS
+================================================== */
+
+@media (max-width: 900px) {
+
+    .header-container {
+        width: 94%;
+
+        grid-template-columns: 60px minmax(0, 1fr) 60px;
+    }
+
+
+    #resumo {
+        max-width: none;
+    }
+
+
+    #stp1 {
+        width: 365px;
+
+        max-width: calc(100vw - 30px);
+    }
+}
+
+
+/* ==================================================
+   CELULARES
+================================================== */
+
+@media (max-width: 600px) {
+
+    .header-container {
+        width: 92%;
+
+        grid-template-columns: 45px minmax(0, 1fr) 45px;
+
+        min-height: 55px;
+    }
+
+
+    .logo {
+        width: 35px;
+        height: 35px;
+    }
+
+
+    .header-container h1 {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+
+        white-space: normal;
+
+        line-height: 1.1;
+    }
+
+
+    .menu-btn {
+        font-size: 1.4rem;
+    }
+
+
+    .nav-menu.ativo {
+        top: 55px;
+    }
+
+
+    .doQueSeTrata {
+        margin-left: 15px;
+
+        padding: 9px 15px;
+
+        font-size: 1rem;
+    }
+
+
+    #resumo {
+        width: calc(100% - 30px);
+
+        margin: 20px 15px;
+
+        padding: 15px;
+
+        font-size: 0.9rem;
+
+        line-height: 1.2;
+    }
+
+/* =========================================
+   COMO FUNCIONA O PROJETO
+========================================= */
+
+.comoFunciona-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(1rem, 2vw, 2rem);
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+#cont {
+    width: fit-content;
+    max-width: calc(100% - 2rem);
+
+    margin-inline: clamp(1rem, 3vw, 3rem);
+
+    padding: clamp(0.7rem, 1.5vw, 1.2rem)
+             clamp(0.8rem, 2vw, 1.5rem);
+
+    background-color: var(--mais_claro);
+    color: var(--body_color);
+
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(0.8rem, 1.3vw, 1.2rem);
+    line-height: 1.3;
+
+    font-weight: bold;
+    border-radius: 0.4rem;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   CONTAINER DOS STEPS
+========================================= */
+
+.steps-container {
+    width: 100%;
+
+    padding-inline: clamp(1rem, 3vw, 3rem);
+
+    display: grid;
+
+    /*
+       Cada coluna pode crescer livremente.
+       O navegador escolhe automaticamente
+       quantos cards cabem na tela.
+    */
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                min(100%, 20rem),
+                1fr
+            )
+        );
+
+    gap: clamp(1rem, 2vw, 2rem);
+}
+
+
+/* =========================================
+   CARD DO STEP
+========================================= */
+
+.step {
+    width: 100%;
+    min-width: 0;
+
+    display: grid;
+
+    /*
+       A primeira coluna também é fluida.
+    */
+    grid-template-columns:
+        clamp(2.5rem, 7vw, 3.75rem)
+        minmax(0, 1fr);
+
+    grid-template-rows:
+        auto
+        auto
+        auto;
+
+    column-gap: clamp(0.5rem, 1.5vw, 1rem);
+
+    padding: clamp(0.8rem, 2vw, 1.5rem);
+
+    background-color: var(--escuro);
+    color: whitesmoke;
+
+    border-radius: clamp(0.6rem, 1vw, 1rem);
+
+    font-weight: bold;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   NÚMERO DO STEP
+========================================= */
+
+.step .n {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 100%;
+    aspect-ratio: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: whitesmoke;
+    background-color: var(--claro);
+
+    border-radius: 50%;
+
+    font-size: clamp(1.1rem, 2vw, 1.8rem);
+}
+
+
+/* =========================================
+   TÍTULO DO STEP
+========================================= */
+
+.step strong {
+    grid-column: 2;
+    grid-row: 1;
+
+    align-self: center;
+
+    color: whitesmoke;
+
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   DESCRIÇÃO
+========================================= */
+
+.step .desc {
+    grid-column: 2;
+    grid-row: 2;
+
+    padding: 0;
+
+    color: gray;
+
+    font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+    line-height: 1.3;
+
+    font-weight: normal;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   IMAGEM
+========================================= */
+
+.step .maps {
+    grid-column: 2;
+    grid-row: 3;
+
+    width: 100%;
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    margin-top: clamp(0.3rem, 0.8vw, 0.6rem);
+
+    border-radius: clamp(0.4rem, 0.8vw, 0.7rem);
+}
+
+
+/* =========================================
+   TELAS MUITO PEQUENAS
+========================================= */
+
+@media (max-width: 30rem) {
+
+    .step {
+        grid-template-columns:
+            clamp(2.2rem, 14vw, 3rem)
+            minmax(0, 1fr);
+    }
+
+    .steps-container {
+        padding-inline: 1rem;
+    }
+}
+}
